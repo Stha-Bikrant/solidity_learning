@@ -4,6 +4,8 @@ import { ethers } from "ethers";
 import ContractAddress from "@/contracts/contract-address.json";
 import abi from "@/contracts/Tracker.json";
 
+
+
 interface StateType {
   provider: ethers.BrowserProvider | null;
   signer: any | null;
@@ -128,14 +130,47 @@ export default function Home() {
   };
   return (
     <div>
-      <input id="receiver" placeholder="receiver" />
-      <input id="amount" placeholder="amount" />
-      <button onClick={processTransaction}>Send</button>
-      
       <h2>Transaction Tracker</h2>
+      <input id="receiver" placeholder="receiver"  style={{
+    width: "20%",
+    padding: "10px",
+    marginBottom: "12px",
+    border: "1px solid #ddd",
+    borderRadius: "4px",
+    fontSize: "14px",
+  }}  />
+      <input id="amount" placeholder="amount" style={{
+    width: "20%",
+    padding: "10px",
+    marginBottom: "12px",
+    border: "1px solid #ddd",
+    borderRadius: "4px",
+    fontSize: "14px",
+  }} />
+      <button onClick={processTransaction}   style={{
+    backgroundColor: "#4CAF50", // Green background color
+    color: "white",            // White text color
+    padding: "10px 20px",      // Padding for a better look
+    border: "2px solid #4CAF50", // Border matching background
+    borderRadius: "5px",       // Rounded corners
+    cursor: "pointer",         // Pointer cursor on hover
+    fontSize: "16px",          // Font size
+    marginTop: "10px",         // Add margin for spacing
+  }}>Send</button>
+      
 
 <div>
-  <button onClick={getAllTransaction}>Get My Transactions</button>
+  <br/>
+  <button onClick={getAllTransaction}  style={{
+    backgroundColor: "#4c89af", // Green background color
+    color: "white",            // White text color
+    padding: "10px 20px",      // Padding for a better look
+    border: "2px solid #061907", // Border matching background
+    borderRadius: "5px",       // Rounded corners
+    cursor: "pointer",         // Pointer cursor on hover
+    fontSize: "16px",          // Font size
+    marginTop: "10px",         // Add margin for spacing
+  }}>Get My Transactions</button>
 </div>
 
 <h3>Transaction List:</h3>
@@ -143,6 +178,7 @@ export default function Home() {
   <ul>
     {transactions.map((tx, index) => (
       <li key={index}>
+        <p>-----</p>
         <p>Receiver: {tx.receiver}</p>
         <p>Amount: {tx.amount} ETH</p>
         <p>Timestamp: {tx.timestamp}</p>
@@ -154,6 +190,7 @@ export default function Home() {
 )}
     </div>
   );
+ 
 
 
 }
